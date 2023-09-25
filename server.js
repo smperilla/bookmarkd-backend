@@ -14,4 +14,8 @@ app.get("/", (req, res) => {
   res.send("Welcome to Bookmarkd");
 });
 
+app.get("/bookmarks", (req, res) => {
+  res.json(bookmarks);
+});
+
 app.listen(PORT, () => console.log("Server is running on port", PORT));
