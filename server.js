@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = 9000;
+const bookmarkController = require("./controllers/bookmarkController");
 const morgan = require("morgan");
 const cors = require("cors");
 
@@ -14,8 +15,6 @@ app.get("/", (req, res) => {
   res.send("Welcome to Bookmarkd");
 });
 
-app.get("/bookmarks", (req, res) => {
-  res.json(bookmarks);
-});
+app.use("/bookmarks", bookmarkController);
 
 app.listen(PORT, () => console.log("Server is running on port", PORT));
